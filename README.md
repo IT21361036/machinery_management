@@ -10,7 +10,7 @@ Please go under edit and edit this file as needed for your project
 ### Member 4 - IT21156724 Shehani W.G.P (it21156724@my.sliit.lk)
 ### Member 5 -IT21161810 Mangchanayaka M.V.V.(IT21161810@my.sliit.lk )
 
-### Member 6 - IT21361036 Sara M.K.F (it21361036@my.sliit.lk)
+### Member 6 - IT21361036 Saara M.K.F (it21361036@my.sliit.lk)
 ### Member 7 - IT21378034 Wijerathna W.D.N (it21378034@my.sllit.lk) 
 ### Member 8 - IT21378102 Herath H.M.K.R (IT21378102@my.sliit.lk)
 
