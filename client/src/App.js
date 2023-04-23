@@ -35,7 +35,7 @@ function App() {
           }
         />
         <Route
-          path="admin/:userId"
+          path="admin/users/:userId"
           element={
             <ProtectedRoute>
               <Single />
