@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { createError } from "../utils/error.js";
 
 export const verifyToken = (req,res,next)=>{
-    console.log(req)
+    console.log('req.headers.access_token',req.headers.access_token)
     const token = req.headers.access_token;
     if(!token){
         return next(createError(401,"You are not authenticated!"));
@@ -26,12 +26,13 @@ export const verifyUser = (req,res,next)=>{
 };
 
 export const verifyAdmin = (req,res,next)=>{
+    console.log(req.user)
     verifyToken(req,res,next, ()=>{
-        if(req.user.isAdmin){
+        // if(req.user.isAdmin){
             next();
-        }else{
-        return next(createError(403,"You are not auhorized!"));
+        // }else{
+        // return next(createError(403,"You are not auhorized!"));
 
-        }
+        // }
     });
 };

@@ -29,7 +29,7 @@ const Login = () => {
       console.log(res);
       setToken(res.data.access_token);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      if (res.data.username === "admin") {
+      if (res.data.username.includes("admin")) {
         navigate("/admin");
       } else {
         navigate("/");

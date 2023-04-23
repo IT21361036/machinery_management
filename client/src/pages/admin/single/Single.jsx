@@ -1,15 +1,15 @@
 import "./single.scss";
-import Sidebar from "../../../components/sidebar/Sidebar";
-import Navbar from "../../../components/navbar/Navbar";
+import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import Chart from "../../../components/chart/Chart";
 import List from "../../../components/table/Table";
+import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
 
 const Single = () => {
   return (
     <div className="single">
-      <Sidebar />
+      <AdminSidebar />
       <div className="singleContainer">
-        <Navbar />
+        <AdminNavbar />
         <div className="top">
           <div className="left">
             <div className="editButton">Edit</div>

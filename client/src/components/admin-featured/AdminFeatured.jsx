@@ -1,14 +1,14 @@
-import "./featured.scss";
+import "./admin-featured.scss";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 
-const Featured = () => {
+const AdminFeatured = () => {
   return (
     <div className="featured">
-      <div className="top">
+      <div className="adminTop">
         <h1 className="title">Total Wastage Percentage</h1>
         <MoreVertIcon fontSize="small" />
       </div>
@@ -49,4 +49,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default AdminFeatured;

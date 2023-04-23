@@ -1,18 +1,18 @@
 import "./adminHome.scss";
-import Sidebar from "../../../components/sidebar/Sidebar";
-import Navbar from "../../../components/navbar/Navbar";
+import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import Widget from "../../../components/widget/Widget";
-import Featured from "../../../components/featured/Featured";
 import Chart from "../../../components/chart/Chart";
 import Table from "../../../components/table/Table";
 import PDFReport from "../../../components/PDFReport/PDFReport";
+import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
+import AdminFeatured from "../../../components/admin-featured/AdminFeatured";
 
 const AdminHome = () => {
   return (
-    <div className="home">
-      <Sidebar />
-      <div className="homeContainer">
-        <Navbar />
+    <div className="adminHome">
+      <AdminSidebar />
+      <div className="adminHomeContainer">
+        <AdminNavbar />
       <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />
@@ -21,7 +21,7 @@ const AdminHome = () => {
         </div>
        
         <div className="charts">
-          <Featured />
+          <AdminFeatured />
           <Chart title="Last 6 Months (Estimated Time)" aspect={2 / 1} />
         </div>
 

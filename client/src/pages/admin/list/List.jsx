@@ -1,20 +1,15 @@
 import "./list.scss"
-import Sidebar from "../../../components/sidebar/Sidebar"
-import Navbar from "../../../components/navbar/Navbar"
+import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar"
 import Datatable from "../../../components/datatable/Datatable"
-import { useEffect } from "react";
+import AdminNavbar from "../../../components/admin-navbar/AdminNavbar"
 
 const List = () => {
 
-useEffect(()=>{
-  setCookie('access_token', 'token', { path: '/' });
-},[])
-
   return (
     <div className="list">
-      <Sidebar/>
+      <AdminSidebar/>
       <div className="listContainer">
-        <Navbar/>
+        <AdminNavbar/>
         <Datatable/>
       </div>
     </div>

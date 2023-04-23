@@ -1,17 +1,17 @@
 import "./new.scss";
-import Sidebar from "../../../components/sidebar/Sidebar";
-import Navbar from "../../../components/navbar/Navbar";
+import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
+import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
     <div className="new">
-      <Sidebar />
+      <AdminSidebar />
       <div className="newContainer">
-        <Navbar />
+        <AdminNavbar />
         <div className="top">
           <h1>{title}</h1>
         </div>
