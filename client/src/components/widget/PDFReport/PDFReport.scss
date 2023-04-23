@@ -1,0 +1,34 @@
+.pdf-report {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+.pdf-report__h1 {
+    font-size: 1.5rem;
+    
+    margin-bottom: 0rem;
+    margin-left: 1rem;
+  }
+  
+.pdf-report__button{
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.pdf-report__button button:hover {
+    background-color: #3e8e41;
+  }
+  
+  
