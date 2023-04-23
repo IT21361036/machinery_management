@@ -1,10 +1,10 @@
-import "./new.scss";
+import "./admin-add-new-user.scss";
 import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
 
-const New = ({ inputs, title }) => {
+const AdminAddNewUser = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -43,10 +43,14 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder} />
+                  <input
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    required={input.required}
+                  />
                 </div>
               ))}
-              <button>Send</button>
+              <button>Add User</button>
             </form>
           </div>
         </div>
@@ -55,4 +59,4 @@ const New = ({ inputs, title }) => {
   );
 };
 
-export default New;
+export default AdminAddNewUser;
