@@ -1945,11 +1945,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/cookie@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/@types/cookie/-/cookie-0.3.3.tgz"
-  integrity sha512-LKVP3cgXBT9RYj+t+9FDKwS5tdI+rPBXaNSkma7hvqy35lc7mAokC2zsqWJH0LaqIt3B962nuYI77hsJoT1gow==
-
 "@types/d3-array@^3.0.3":
   version "3.0.4"
   resolved "https://registry.npmjs.org/@types/d3-array/-/d3-array-3.0.4.tgz"
@@ -2052,14 +2047,6 @@
   integrity sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==
   dependencies:
     "@types/node" "*"
-
-"@types/hoist-non-react-statics@^3.0.1":
-  version "3.3.1"
-  resolved "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
-  integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
-  dependencies:
-    "@types/react" "*"
-    hoist-non-react-statics "^3.3.0"
 
 "@types/html-minifier-terser@^6.0.0":
   version "6.1.0"
@@ -3450,7 +3437,7 @@ cookie-signature@1.0.6:
   resolved "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
 
-cookie@^0.4.0, cookie@0.4.2:
+cookie@0.4.2:
   version "0.4.2"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
   integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
@@ -5103,7 +5090,7 @@ he@^1.2.0:
   resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1:
+hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -6200,6 +6187,19 @@ klona@^2.0.4, klona@^2.0.5:
   resolved "https://registry.npmjs.org/klona/-/klona-2.0.5.tgz"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
 
+koekiemonster@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/koekiemonster/-/koekiemonster-1.0.0.tgz"
+  integrity sha512-t+Xoz9e2SCbzKrNiRVlUKFrUEdqG/Zcz+9G9WMo2aCY0GMkdFQtEAwnVvCcjzparr63a6a2yQeqHZ/Aqjrlnog==
+
+koekje@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/koekje/-/koekje-0.1.0.tgz"
+  integrity sha512-c99rwBm1e4brEd7hbvEIHcXF8tqGMqXPziiUVJqsEfNbrMcTDh0vE5+O1+MWzOzo83EjEf3hP73RP+sxRCYKXA==
+  dependencies:
+    koekiemonster "1.0.x"
+    querystringify "1.0.x"
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.npmjs.org/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz"
@@ -6671,6 +6671,11 @@ object.values@^1.1.0, object.values@^1.1.5:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
     es-abstract "^1.19.1"
+
+objstorage@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/objstorage/-/objstorage-1.0.0.tgz"
+  integrity sha512-wBnDLmz20/Xv3USZbpiKxV3A1wAq1Ezl87yAZ9INSjqB/0+efNjSG9m6gq0dYPNB4yzobGdA/vkYQuxUJRjYVQ==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
@@ -7566,6 +7571,16 @@ qs@6.9.7:
   resolved "https://registry.npmjs.org/qs/-/qs-6.9.7.tgz"
   integrity sha512-IhMFgUmuNpyRfxA90umL7ByLlgRXu6tIfKPpF5TmcfRLlLCckfP/g3IQmju6jjpu+Hh8rA+2p6A27ZSPOOHdKw==
 
+querystringify@0.0.x:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/querystringify/-/querystringify-0.0.4.tgz"
+  integrity sha512-uSBVdZ68zn9oM4lnS1/7kxuh5+20iSaJiYq/+h75/u+dHapT2jhgGiSr11ewBr9cBjrdqlLLZw6BB2LJr9ritw==
+
+querystringify@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/querystringify/-/querystringify-1.0.0.tgz"
+  integrity sha512-+WIW046/nhIni/mtczBDTctF309Ue0XfKIeF83eilLr4ollrimEqxzIG2DC0MUgvi40F4Rji4m6UhKENNsErtA==
+
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
@@ -7621,15 +7636,6 @@ react-circular-progressbar@^2.0.4:
   version "2.1.0"
   resolved "https://registry.npmjs.org/react-circular-progressbar/-/react-circular-progressbar-2.1.0.tgz"
   integrity sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g==
-
-react-cookie@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/react-cookie/-/react-cookie-4.1.1.tgz"
-  integrity sha512-ffn7Y7G4bXiFbnE+dKhHhbP+b8I34mH9jqnm8Llhj89zF4nPxPutxHT1suUqMeCEhLDBI7InYwf1tpaSoK5w8A==
-  dependencies:
-    "@types/hoist-non-react-statics" "^3.0.1"
-    hoist-non-react-statics "^3.0.0"
-    universal-cookie "^4.0.0"
 
 react-date-range@^1.4.0:
   version "1.4.0"
@@ -7831,7 +7837,7 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-"react@^0.14 || ^15.0.0-rc || >=15.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0", react@^18.0.0, "react@>= 16", "react@>= 16.3.0", react@>=15.0.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=16.x, "react@0.14 || 15 - 18":
+"react@^0.14 || ^15.0.0-rc || >=15.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0", react@^18.0.0, "react@>= 16", react@>=15.0.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=16.x, "react@0.14 || 15 - 18":
   version "18.0.0"
   resolved "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
   integrity sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==
@@ -8308,6 +8314,15 @@ serve-static@1.14.2:
     escape-html "~1.0.3"
     parseurl "~1.3.3"
     send "0.17.2"
+
+sessionstorage@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/sessionstorage/-/sessionstorage-0.1.0.tgz"
+  integrity sha512-z0PrRunU4LRiP73qfXyynz9AZwBDVDmwEFDyA4GAETONnFewp5ZY0BY/1T31bR8XsVOXEtSPIS7BU+ecZhFmcQ==
+  dependencies:
+    koekje "^0.1.0"
+    objstorage "^1.0.0"
+    window.name "^0.0.3"
 
 setprototypeof@1.1.0:
   version "1.1.0"
@@ -9034,14 +9049,6 @@ unique-string@^2.0.0:
   dependencies:
     crypto-random-string "^2.0.0"
 
-universal-cookie@^4.0.0:
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/universal-cookie/-/universal-cookie-4.0.4.tgz"
-  integrity sha512-lbRVHoOMtItjWbM7TwDLdl8wug7izB0tq3/YVKhT/ahB4VDvWMyvnADfnJI8y6fSvsjh51Ix7lTGC6Tn4rMPhw==
-  dependencies:
-    "@types/cookie" "^0.3.3"
-    cookie "^0.4.0"
-
 universalify@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz"
@@ -9384,6 +9391,13 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+window.name@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/window.name/-/window.name-0.0.3.tgz"
+  integrity sha512-rO0MVNDs8w43LnIzxNOqF0l7ccR/RWF4W/vnFuDhLjjgXcOfpYtmJiL/iNFKR3SigzYHImDWwJDTbVdHRZCv5A==
+  dependencies:
+    querystringify "0.0.x"
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"

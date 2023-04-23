@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import axiosInstance from "../axios";
-import { TokenContext } from "../context/TokenContext";
+import { AuthContext } from "../context/AuthContext";
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [loadig, setLoading] = useState([false]);
   const [error, setError] = useState([false]);
-  const { token } = useContext(TokenContext);
+  const { user } = useContext(AuthContext);
+  const token = user?.access_token;
 
   useEffect(() => {
     const config = {
