@@ -4,14 +4,11 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  return (
-    <div className="navbar">
+  return null;
+  {/*     <div className="navbar">
       <div className="navContainer">
-        <Link to="/" style={{color:"inherit",textDecoration:"none"}}>
-        <span className="logo">LITTLE LANKA</span>
-        </Link>
         {user ? user.username : (
           <div className="navItems">
           <button className="navButton">Register</button>
@@ -19,8 +16,7 @@ const Navbar = () => {
         </div>
         )}
       </div>
-    </div>
-  )
-}
+        </div> */}
+};
 
-export default Navbar
+export default Navbar;
