@@ -8,13 +8,12 @@ const useFetch = (url) => {
   const [error, setError] = useState([false]);
   const { token } = useContext(TokenContext);
 
-  const config = {
-    headers: {
-      "access-token": token,
-    },
-  };
-
   useEffect(() => {
+    const config = {
+      headers: {
+        "access-token": token,
+      },
+    };
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -26,7 +25,7 @@ const useFetch = (url) => {
       setLoading(false);
     };
     fetchData();
-  }, [url]);
+  }, [url, token]);
 
   const reFetch = async () => {
     setLoading(true);

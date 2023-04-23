@@ -7,7 +7,7 @@ import AdminHome from "./pages/admin/admin-home/AdminHome";
 import Single from "./pages/admin/single/Single";
 import UserList from "./pages/admin/list/List";
 import NewUser from "./pages/admin/new/New";
-import { productInputs, userInputs } from "./formSource";
+import { userInputs } from "./formSource";
 
 function App() {
   return (
