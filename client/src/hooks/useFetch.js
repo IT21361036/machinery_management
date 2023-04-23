@@ -11,7 +11,7 @@ const useFetch = (url) => {
   useEffect(() => {
     const config = {
       headers: {
-        "access-token": token,
+        authorization: token,
       },
     };
     const fetchData = async () => {

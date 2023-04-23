@@ -4,14 +4,11 @@ import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.js";
 
-
-
 const Datatable = () => {
+  const { data, loadig, error } = useFetch("/users");
 
-  const { data, loadig, error } = useFetch("/users")   
-
-  const handleDelete =(id) => {
-      //setList(list.filter((item) => item._id !== id));
+  const handleDelete = (id) => {
+    //setList(list.filter((item) => item._id !== id));
   };
 
   const actionColumn = [
@@ -51,7 +48,7 @@ const Datatable = () => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
-        getRowId={row=>row._id}
+        getRowId={(row) => row._id}
       />
     </div>
   );

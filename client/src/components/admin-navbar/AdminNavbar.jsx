@@ -13,7 +13,7 @@ const AdminNavbar = () => {
   const { dispatch } = useContext(DarkModeContext);
 
   return (
-    <div className="navbar">
+    <div className="adminNavbar">
       <div className="wrapper">
         <div className="search">
           <input type="text" placeholder="Search..." />

@@ -1,61 +1,58 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./routes/auth.js"
-import usersRoute from "./routes/users.js"
-import machinesRoute from "./routes/machines.js"
-import submachinesRoute from "./routes/submachines.js"
+import authRoute from "./routes/auth.js";
+import usersRoute from "./routes/users.js";
+import machinesRoute from "./routes/machines.js";
+import submachinesRoute from "./routes/submachines.js";
 import cookieParser from "cookie-parser";
-import cors from 'cors';
-import cookiesMiddleware from 'universal-cookie-express';
+import cors from "cors";
+import cookiesMiddleware from "universal-cookie-express";
 
 const app = express();
 dotenv.config();
 
-const connect = async ()=>{
-try {
+const connect = async () => {
+  try {
     await mongoose.connect(process.env.MONGO);
-    console.log("Connected to mongoDB")
+    console.log("Connected to mongoDB");
   } catch (error) {
     throw error;
   }
 };
 
-mongoose.connection.on("disconnected", ()=>{
-    console.log("mongoDB disconnected")
-})
+mongoose.connection.on("disconnected", () => {
+  console.log("mongoDB disconnected");
+});
 
 var corsOptions = {
-    origin: '*',
-    credentials: true };
+  origin: "*",
+  credentials: true,
+};
 
-
-//middleware 
-app.use(cors(corsOptions))
-app.use(cookieParser())
-app.use(cookiesMiddleware())
-app.use(express.json())
+//middleware
+app.use(cors());
+app.use(cookieParser());
+app.use(cookiesMiddleware());
+app.use(express.json());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
-app.use('/api/machines',machinesRoute)
-app.use("/api/submachines",submachinesRoute);
+app.use("/api/machines", machinesRoute);
+app.use("/api/submachines", submachinesRoute);
 
-
-
-
-app.use((err,req,res,next)=>{
-  const errorStatus = err.status || 500
-  const errorMessage = err.message || "Something went wrong"
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong";
   return res.status(errorStatus).json({
-    success:false,
-    status:errorStatus,
-    message:errorMessage,
-    stack:err.stack,
-  })
-})
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+    stack: err.stack,
+  });
+});
 
-app.listen(8800, ()=>{
-    connect()
-    console.log("Connected to backend .")
+app.listen(8800, () => {
+  connect();
+  console.log("Connected to backend .");
 });

@@ -8,6 +8,7 @@ import Single from "./pages/admin/single/Single";
 import UserList from "./pages/admin/list/List";
 import NewUser from "./pages/admin/new/New";
 import { userInputs } from "./formSource";
+import ProtectedRoute from "./components/protected-route/protected-route.component";
 
 function App() {
   return (
@@ -17,15 +18,38 @@ function App() {
         <Route path="/hotels" element={<List />} />
         <Route path="/hotels/:id" element={<Hotel />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin">
-          <Route index element={<AdminHome />} />
-          <Route path="users" element={<UserList />} />
-          <Route path="admin/:userId" element={<Single />} />
-          <Route
-            path="new"
-            element={<NewUser inputs={userInputs} title="Add New User" />}
-          />
-        </Route>
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <UserList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/:userId"
+          element={
+            <ProtectedRoute>
+              <Single />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="new"
+          element={
+            <ProtectedRoute>
+              <NewUser inputs={userInputs} title="Add New User" />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
