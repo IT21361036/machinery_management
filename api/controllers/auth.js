@@ -16,6 +16,7 @@ export const register = async (req, res, next) => {
     await newUser.save();
     res.status(200).send("User has been created! ");
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };

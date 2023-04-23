@@ -3,9 +3,24 @@ import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
+import { useForm } from "react-hook-form";
+import axiosInstance from "../../../axios";
+import { useNavigate } from "react-router-dom";
 
 const AdminAddNewUser = ({ inputs, title }) => {
   const [file, setFile] = useState("");
+
+  const { handleSubmit, register } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    data.img =
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600";
+    try {
+      await axiosInstance.post("/auth/register", data);
+      navigate("/admin/users");
+    } catch (e) {}
+  };
 
   return (
     <div className="new">
@@ -27,7 +42,7 @@ const AdminAddNewUser = ({ inputs, title }) => {
             />
           </div>
           <div className="right">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="formInput">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
@@ -47,10 +62,11 @@ const AdminAddNewUser = ({ inputs, title }) => {
                     type={input.type}
                     placeholder={input.placeholder}
                     required={input.required}
+                    {...register(input.name)}
                   />
                 </div>
               ))}
-              <button>Add User</button>
+              <button type="submit">Add User</button>
             </form>
           </div>
         </div>
