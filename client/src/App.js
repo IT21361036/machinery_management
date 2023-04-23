@@ -43,7 +43,7 @@ function App() {
           }
         />
         <Route
-          path="new"
+          path="/admin/users/new"
           element={
             <ProtectedRoute>
               <NewUser inputs={userInputs} title="Add New User" />

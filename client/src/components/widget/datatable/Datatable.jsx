@@ -5,14 +5,11 @@ import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.js";
 import { useState } from "react";
 
-
-
 const Datatable = () => {
+  const { data, loadig, error } = useFetch("/users");
 
-  const { data, loadig, error } = useFetch("/users")   
-
-  const handleDelete =(id) => {
-      //setList(list.filter((item) => item._id !== id));
+  const handleDelete = (id) => {
+    //setList(list.filter((item) => item._id !== id));
   };
 
   const actionColumn = [
@@ -41,7 +38,7 @@ const Datatable = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/users/new" className="link">
+        <Link to="/admin/users/new" className="link">
           Add New
         </Link>
       </div>
@@ -52,7 +49,7 @@ const Datatable = () => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
-        getRowId={row=>row._id}
+        getRowId={(row) => row._id}
       />
     </div>
   );
