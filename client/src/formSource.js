@@ -25,8 +25,12 @@ export const userInputs = [
     label: "Phone",
     name: "phone",
     type: "text",
-    placeholder: "+1 234 567 89",
+    placeholder: "+1 234 567 8911",
     required: true,
+    pattern: {
+      value: /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+      message: "Phone number is not in correct format",
+    },
   },
   {
     id: 4,
