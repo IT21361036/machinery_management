@@ -1,10 +1,19 @@
-import "./single.scss";
+import "./singleUser.scss";
 import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import Chart from "../../../components/chart/Chart";
 import List from "../../../components/table/Table";
 import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
+import { useParams } from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
 
-const Single = () => {
+const SingleUser = () => {
+  const { userId } = useParams();
+  console.log(userId);
+
+  const { data } = useFetch(`/users/${userId}`);
+
+  console.log(data);
+
   return (
     <div className="single">
       <AdminSidebar />
@@ -56,4 +65,4 @@ const Single = () => {
   );
 };
 
-export default Single;
+export default SingleUser;

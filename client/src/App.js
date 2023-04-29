@@ -4,7 +4,7 @@ import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
 import Login from "./pages/login/login";
 import AdminHome from "./pages/admin/admin-home/AdminHome";
-import Single from "./pages/admin/single/Single";
+import SingleUser from "./pages/admin/single-user/SingleUser";
 import UserList from "./pages/admin/list/List";
 import ProtectedRoute from "./components/protected-route/protected-route.component";
 import AdminAddNewUser from "./pages/admin/admin-add-new-user/AdminAddNewUser";
@@ -37,7 +37,7 @@ function App() {
           path="admin/users/:userId"
           element={
             <ProtectedRoute>
-              <Single />
+              <SingleUser />
             </ProtectedRoute>
           }
         />

@@ -39,8 +39,8 @@ const useFetch = (url) => {
     setLoading(false);
   };
 
-  const count = data.map((data) => data.count);
-  const type = data.map((data) => data.type);
+  const count = data?.map?.((data) => data.count);
+  const type = data?.map?.((data) => data.type);
 
   return { data, type, count, loadig, error, reFetch };
 };
