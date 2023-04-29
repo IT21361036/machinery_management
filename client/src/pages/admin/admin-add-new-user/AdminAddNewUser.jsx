@@ -6,11 +6,17 @@ import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../../../axios";
 import { useNavigate } from "react-router-dom";
+import { ErrorMessage } from "@hookform/error-message";
+import { userInputs } from "../../../formSource";
 
-const AdminAddNewUser = ({ inputs, title }) => {
+const AdminAddNewUser = () => {
   const [file, setFile] = useState("");
 
-  const { handleSubmit, register } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -28,7 +34,7 @@ const AdminAddNewUser = ({ inputs, title }) => {
       <div className="newContainer">
         <AdminNavbar />
         <div className="top">
-          <h1>{title}</h1>
+          <h1>Add New User</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -55,14 +61,23 @@ const AdminAddNewUser = ({ inputs, title }) => {
                 />
               </div>
 
-              {inputs.map((input) => (
+              {userInputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input
                     type={input.type}
                     placeholder={input.placeholder}
-                    required={input.required}
-                    {...register(input.name)}
+                    {...register(input.name, {
+                      required: "This field is required",
+                      pattern: input.pattern,
+                    })}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name={input.name}
+                    render={({ message }) => (
+                      <p className="formError">{message}</p>
+                    )}
                   />
                 </div>
               ))}

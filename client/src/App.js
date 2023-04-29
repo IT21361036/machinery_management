@@ -6,7 +6,6 @@ import Login from "./pages/login/login";
 import AdminHome from "./pages/admin/admin-home/AdminHome";
 import Single from "./pages/admin/single/Single";
 import UserList from "./pages/admin/list/List";
-import { userInputs } from "./formSource";
 import ProtectedRoute from "./components/protected-route/protected-route.component";
 import AdminAddNewUser from "./pages/admin/admin-add-new-user/AdminAddNewUser";
 
@@ -46,7 +45,7 @@ function App() {
           path="/admin/users/new"
           element={
             <ProtectedRoute>
-              <AdminAddNewUser inputs={userInputs} title="Add New User" />
+              <AdminAddNewUser />
             </ProtectedRoute>
           }
         />

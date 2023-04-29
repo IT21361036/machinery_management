@@ -5,7 +5,7 @@ export const userInputs = [
     name: "username",
     type: "text",
     placeholder: "john_doe",
-    required: false,
+    required: true,
   },
   {
     id: 2,
@@ -13,7 +13,12 @@ export const userInputs = [
     name: "email",
     type: "mail",
     placeholder: "john_doe@gmail.com",
-    required: false,
+    required: true,
+    pattern: {
+      value:
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+      message: "Email is not in correct format",
+    },
   },
   {
     id: 3,
@@ -21,14 +26,14 @@ export const userInputs = [
     name: "phone",
     type: "text",
     placeholder: "+1 234 567 89",
-    required: false,
+    required: true,
   },
   {
     id: 4,
     label: "Password",
     name: "password",
     type: "password",
-    required: false,
+    required: true,
   },
   {
     id: 5,
