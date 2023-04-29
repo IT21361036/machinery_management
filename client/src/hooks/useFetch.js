@@ -42,7 +42,7 @@ const useFetch = (url) => {
   const count = data?.map?.((data) => data.count);
   const type = data?.map?.((data) => data.type);
 
-  return { data, type, count, loading: true, error, reFetch };
+  return { data, type, count, loading, error, reFetch };
 };
 
 export default useFetch;
