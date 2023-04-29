@@ -5,19 +5,19 @@ import List from "../../../components/table/Table";
 import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
+import { LinearProgress } from "@mui/material";
 
 const SingleUser = () => {
   const { userId } = useParams();
 
-  const { data } = useFetch(`/users/${userId}`);
-
-  console.log(data);
+  const { data, loading } = useFetch(`/users/${userId}`);
 
   return (
     <div className="single">
       <AdminSidebar />
       <div className="singleContainer">
         <AdminNavbar />
+        {loading && <LinearProgress />}
         <div className="top">
           <div className="left">
             <div className="editButton">Edit</div>
@@ -29,10 +29,10 @@ const SingleUser = () => {
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">{data?.username}</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  <span className="itemValue">{data?.email}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
