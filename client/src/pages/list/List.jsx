@@ -17,13 +17,13 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const {data, loadig, error, reFetch} = useFetch( 
+  const { data, loading, error, reFetch } = useFetch(
     `/machines?city=${destination}&min=${min || 0}&max=${max || 999}`
-    );
+  );
 
-  const handleClick = ()=>{
-    reFetch()
-  }
+  const handleClick = () => {
+    reFetch();
+  };
 
   return (
     <div>
@@ -58,13 +58,21 @@ const List = () => {
                   <span className="lsOptionText">
                     Min price <small>per machine</small>
                   </span>
-                  <input type="number" onChange={e=>setMin(e.target.value)} className="lsOptionInput" />
+                  <input
+                    type="number"
+                    onChange={(e) => setMin(e.target.value)}
+                    className="lsOptionInput"
+                  />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">
                     Max price <small>per machine</small>
                   </span>
-                  <input type="number" onChange={e=>setMax(e.target.value)} className="lsOptionInput" />
+                  <input
+                    type="number"
+                    onChange={(e) => setMax(e.target.value)}
+                    className="lsOptionInput"
+                  />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">Type</span>
@@ -98,16 +106,15 @@ const List = () => {
             <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
-            {loadig ? "loadig":<>
-            {data.map(item=>(
-
-
-              <SearchItem item={item} key={item._id}/>
-            ))}
-            
-            </>}
-          
-          
+            {loading ? (
+              "loadig"
+            ) : (
+              <>
+                {data.map((item) => (
+                  <SearchItem item={item} key={item._id} />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>

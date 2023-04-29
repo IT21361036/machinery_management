@@ -2,7 +2,7 @@ import "./propertyList.css";
 import useFetch from "../../hooks/useFetch";
 
 const PropertyList = () => {
-  const {data, loadig, error} = useFetch("/machines/countByType");
+  const { data, loading } = useFetch("/machines/countByType");
 
   const imagess = [
     "./images/img8.png",
@@ -14,21 +14,19 @@ const PropertyList = () => {
 
   return (
     <div className="pList">
-      {loadig ? (
-        "loadig"//loading
+      {loading ? (
+        "loadig" //loading
       ) : (
         <>
           {data &&
-            imagess.map((img,i) => (
+            imagess.map((img, i) => (
               <div className="pListItem" key={i}>
-                <img
-                  src={img}
-                  alt=""
-                  className="pListImg"
-                />
+                <img src={img} alt="" className="pListImg" />
                 <div className="pListTitles">
                   <h1>{data[i]?.type}</h1>
-                  <h2>{data[i]?.count} {data[i]?.type}</h2>
+                  <h2>
+                    {data[i]?.count} {data[i]?.type}
+                  </h2>
                 </div>
               </div>
             ))}

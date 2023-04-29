@@ -8,7 +8,6 @@ import useFetch from "../../../hooks/useFetch";
 
 const SingleUser = () => {
   const { userId } = useParams();
-  console.log(userId);
 
   const { data } = useFetch(`/users/${userId}`);
 

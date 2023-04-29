@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
-  const [loadig, setLoading] = useState([false]);
+  const [loading, setLoading] = useState([false]);
   const [error, setError] = useState([false]);
   const { user } = useContext(AuthContext);
   const token = user?.access_token;
@@ -42,7 +42,7 @@ const useFetch = (url) => {
   const count = data?.map?.((data) => data.count);
   const type = data?.map?.((data) => data.type);
 
-  return { data, type, count, loadig, error, reFetch };
+  return { data, type, count, loading, error, reFetch };
 };
 
 export default useFetch;
