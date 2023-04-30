@@ -28,11 +28,10 @@ export const verifyUser = (req, res, next) => {
 export const verifyAdmin = (req, res, next) => {
   console.log(req.user);
   verifyToken(req, res, next, () => {
-    // if(req.user.isAdmin){
-    next();
-    // }else{
-    // return next(createError(403,"You are not auhorized!"));
-
-    // }
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      return next(createError(403, "You are not auhorized!"));
+    }
   });
 };
