@@ -20,12 +20,17 @@ const AdminEditUser = () => {
     defaultValues: {
       username: user?.username,
       email: user?.email,
+      phone: user?.phone,
+      password: "123",
+      county: user?.country,
+      city: user?.city,
     },
   });
 
   const onSubmit = async (data) => {
     data.img =
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600";
+    data.password = user?.password;
     try {
       await axiosInstance.put(`/users/${user._id}`, data);
       navigate("/admin/users");
@@ -33,7 +38,6 @@ const AdminEditUser = () => {
   };
 
   useEffect(() => {
-    console.log(user);
     if (!user?._id) navigate("/admin/users");
   }, [navigate, user?._id]);
 
@@ -67,29 +71,28 @@ const AdminEditUser = () => {
               />
             </div>
 
-            {userInputs
-              .filter((user) => user.id !== "password")
-              .map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <input
-                    type={input.type}
-                    placeholder={input.placeholder}
-                    {...register(input.name, {
-                      required: "This field is required",
-                      pattern: input.pattern,
-                    })}
-                  />
-                  <ErrorMessage
-                    errors={errors}
-                    name={input.name}
-                    render={({ message }) => (
-                      <p className="formError">{message}</p>
-                    )}
-                  />
-                </div>
-              ))}
-            <button type="submit">Add User</button>
+            {userInputs.map((input) => (
+              <div className="formInput" key={input.id}>
+                <label>{input.label}</label>
+                <input
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  disabled={input.type === "password"}
+                  {...register(input.name, {
+                    required: "This field is required",
+                    pattern: input.pattern,
+                  })}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name={input.name}
+                  render={({ message }) => (
+                    <p className="formError">{message}</p>
+                  )}
+                />
+              </div>
+            ))}
+            <button type="submit">Edit User</button>
           </form>
         </div>
       </div>

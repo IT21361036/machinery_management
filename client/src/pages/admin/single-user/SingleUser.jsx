@@ -43,7 +43,7 @@ const SingleUser = () => {
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+1 2345 67 89</span>
+                  <span className="itemValue">{data?.phone}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
@@ -53,7 +53,7 @@ const SingleUser = () => {
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Country:</span>
-                  <span className="itemValue">USA</span>
+                  <span className="itemValue">{data?.country}</span>
                 </div>
               </div>
             </div>
