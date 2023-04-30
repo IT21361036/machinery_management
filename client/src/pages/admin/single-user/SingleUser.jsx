@@ -3,14 +3,19 @@ import AdminSidebar from "../../../components/admin-sidebar/AdminSidebar";
 import Chart from "../../../components/chart/Chart";
 import List from "../../../components/table/Table";
 import AdminNavbar from "../../../components/admin-navbar/AdminNavbar";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { LinearProgress } from "@mui/material";
 
 const SingleUser = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
 
   const { data, loading } = useFetch(`/users/${userId}`);
+
+  const handleEditClick = () => {
+    navigate(`edit`, { state: data });
+  };
 
   return (
     <div className="single">
@@ -20,7 +25,9 @@ const SingleUser = () => {
         {loading && <LinearProgress />}
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
+            <div className="editButton" onClick={handleEditClick}>
+              Edit
+            </div>
             <h1 className="title">Information</h1>
             <div className="item">
               <img

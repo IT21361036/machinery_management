@@ -1,35 +1,46 @@
-import "./admin-add-new-user.scss";
+import "./admin-edit-user.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../../../axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
 import { userInputs } from "../../../formSource";
 
-const AdminAddNewUser = ({ title }) => {
+const AdminEditUser = () => {
   const [file, setFile] = useState("");
+  const { state: user } = useLocation();
+  const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
-  const navigate = useNavigate();
+  } = useForm({
+    defaultValues: {
+      username: user?.username,
+      email: user?.email,
+    },
+  });
 
   const onSubmit = async (data) => {
     data.img =
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600";
     try {
-      await axiosInstance.post("/auth/register", data);
+      await axiosInstance.put(`/users/${user._id}`, data);
       navigate("/admin/users");
     } catch (e) {}
   };
 
+  useEffect(() => {
+    console.log(user);
+    if (!user?._id) navigate("/admin/users");
+  }, [navigate, user?._id]);
+
   return (
     <>
       <div className="top">
-        <h1>Add New User</h1>
+        <h1>Edit User</h1>
       </div>
       <div className="bottom">
         <div className="left">
@@ -56,26 +67,28 @@ const AdminAddNewUser = ({ title }) => {
               />
             </div>
 
-            {userInputs.map((input) => (
-              <div className="formInput" key={input.id}>
-                <label>{input.label}</label>
-                <input
-                  type={input.type}
-                  placeholder={input.placeholder}
-                  {...register(input.name, {
-                    required: "This field is required",
-                    pattern: input.pattern,
-                  })}
-                />
-                <ErrorMessage
-                  errors={errors}
-                  name={input.name}
-                  render={({ message }) => (
-                    <p className="formError">{message}</p>
-                  )}
-                />
-              </div>
-            ))}
+            {userInputs
+              .filter((user) => user.id !== "password")
+              .map((input) => (
+                <div className="formInput" key={input.id}>
+                  <label>{input.label}</label>
+                  <input
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    {...register(input.name, {
+                      required: "This field is required",
+                      pattern: input.pattern,
+                    })}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name={input.name}
+                    render={({ message }) => (
+                      <p className="formError">{message}</p>
+                    )}
+                  />
+                </div>
+              ))}
             <button type="submit">Add User</button>
           </form>
         </div>
@@ -84,4 +97,4 @@ const AdminAddNewUser = ({ title }) => {
   );
 };
 
-export default AdminAddNewUser;
+export default AdminEditUser;

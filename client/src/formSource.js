@@ -33,7 +33,7 @@ export const userInputs = [
     },
   },
   {
-    id: 4,
+    id: "password",
     label: "Password",
     name: "password",
     type: "password",

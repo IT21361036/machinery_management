@@ -7,7 +7,7 @@ import AdminHome from "./pages/admin/admin-home/AdminHome";
 import SingleUser from "./pages/admin/single-user/SingleUser";
 import UserList from "./pages/admin/list/List";
 import ProtectedRoute from "./components/protected-route/protected-route.component";
-import AdminAddNewUser from "./pages/admin/admin-add-new-user/AdminAddNewUser";
+import AdminAddEditUser from "./pages/admin/admin-add-edit-user/AdminAddEditUser";
 
 function App() {
   return (
@@ -42,10 +42,18 @@ function App() {
           }
         />
         <Route
+          path="admin/users/:userId/edit"
+          element={
+            <ProtectedRoute>
+              <AdminAddEditUser isEdit />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/admin/users/new"
           element={
             <ProtectedRoute>
-              <AdminAddNewUser />
+              <AdminAddEditUser />
             </ProtectedRoute>
           }
         />
