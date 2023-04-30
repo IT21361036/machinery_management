@@ -1,4 +1,4 @@
-import "./admin-edit-user.scss";
+import "../admin-add-edit-user/adminAddEditUser.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
