@@ -15,7 +15,7 @@ const PropertyList = () => {
   return (
     <div className="pList">
       {loading ? (
-        "loadig" //loading
+        "loading" //loading
       ) : (
         <>
           {data &&

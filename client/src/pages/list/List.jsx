@@ -17,9 +17,7 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, error, reFetch } = useFetch(
-    `/machines?city=${destination}&min=${min || 0}&max=${max || 999}`
-  );
+  const { data, loading, error, reFetch } = useFetch(`/machines`);
 
   const handleClick = () => {
     reFetch();
@@ -107,7 +105,7 @@ const List = () => {
           </div>
           <div className="listResult">
             {loading ? (
-              "loadig"
+              "loading"
             ) : (
               <>
                 {data.map((item) => (
