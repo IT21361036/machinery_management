@@ -1,20 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../axios";
-import { AuthContext } from "../context/AuthContext";
+import { useGetTokenConfig } from "./useGetToenConfig";
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState([false]);
   const [error, setError] = useState([false]);
-  const { user } = useContext(AuthContext);
-  const token = user?.access_token;
+  const config = useGetTokenConfig();
 
   useEffect(() => {
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -26,7 +20,7 @@ const useFetch = (url) => {
       setLoading(false);
     };
     fetchData();
-  }, [url, token]);
+  }, [url, config]);
 
   const reFetch = async () => {
     setLoading(true);

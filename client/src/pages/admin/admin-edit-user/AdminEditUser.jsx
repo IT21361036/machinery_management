@@ -6,11 +6,13 @@ import axiosInstance from "../../../axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
 import { userInputs } from "../../../formSource";
+import { useGetTokenConfig } from "../../../hooks/useGetToenConfig";
 
 const AdminEditUser = () => {
   const [file, setFile] = useState("");
   const { state: user } = useLocation();
   const navigate = useNavigate();
+  const config = useGetTokenConfig();
 
   const {
     handleSubmit,
@@ -22,8 +24,9 @@ const AdminEditUser = () => {
       email: user?.email,
       phone: user?.phone,
       password: "123",
-      county: user?.country,
-      city: user?.city,
+      country: "USA",
+      city: "California",
+      address: "Elton St. 21 NewYork",
     },
   });
 
@@ -32,7 +35,7 @@ const AdminEditUser = () => {
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600";
     data.password = user?.password;
     try {
-      await axiosInstance.put(`/users/${user._id}`, data);
+      await axiosInstance.put(`/users/${user._id}`, data, config);
       navigate("/admin/users");
     } catch (e) {}
   };
